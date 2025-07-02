@@ -1,4 +1,4 @@
-<h1 align="center">🚇 Kochi Metro Web3 Ticketing System</h1>
+<h1 align="center">🚇 MetroMint Xpress </h1>
 <p align="center">Revolutionizing public transport in Kerala with Blockchain, NFTs & BNB Chain 🌐</p>
 
 <!-- there is a logo for blockchain here 
