@@ -5,10 +5,6 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-/**
- * @title MetroMintXpress
- * @notice A smart contract for creating and verifying NFT-based metro tickets on BNB Chain.
- */
 contract MetroMintXpress is ERC721, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
@@ -56,6 +52,6 @@ contract MetroMintXpress is ERC721, Ownable {
     }
     
     function _baseURI() internal pure override returns (string memory) {
-        return "https://api.metromint.xpress/tickets/"; // Example API endpoint
+        return "https://api.metromint.xpress/tickets/";
     }
 }
