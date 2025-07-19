@@ -68,3 +68,13 @@ C --> D[User Receives Ticket as QR Code]
 D --> E[Scan QR at Entry Gate]
 E --> F[Ticket Verified via Smart Contract]
 F --> G[Real-time Admin Dashboard Updates]
+
+folder structure
+metromint_xpress/
+├── templates/
+│   └── index.html
+├── .env
+├── app.py
+├── contract_abi.json
+├── MetroMintXpress.sol
+└── requirements.txt
