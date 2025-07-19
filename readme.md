@@ -1,6 +1,6 @@
 <h1 align="center">🚇 MetroMint Xpress </h1>
 <p align="center">Revolutionizing public transport in Kerala with Blockchain, NFTs & BNB Chain 🌐</p>
-
+ 
 <!-- there is a logo for blockchain here 
 <p align="center">
   <img src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/000000/external-blockchain-cryptocurrency-flaticons-flat-flat-icons-3.png" alt="blockchain icon"/>
