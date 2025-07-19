@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚇 MetroMint Xpress</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background-color: #f0f2f5; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .container { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); width: 100%; max-width: 450px; text-align: center; }
+        h1 { color: #0b4f6c; margin-top: 0; }
+        p { color: #555; }
+        .form-group { margin-bottom: 1.5rem; text-align: left; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+        select { width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; }
+        button { background-color: #147df5; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-size: 1rem; cursor: pointer; width: 100%; transition: background-color 0.3s; }
+        button:hover { background-color: #0b69d4; }
+        button:disabled { background-color: #aaa; cursor: not-allowed; }
+        #result { margin-top: 1.5rem; padding: 1rem; border-radius: 6px; display: none; }
+        #result.success { background-color: #e6f9f0; border: 1px solid #a3e9c6; }
+        #result.error { background-color: #fdeaea; border: 1px solid #f9c5c5; }
+        #qr-code-container { margin-top: 1rem; }
+        #qr-code-container img { max-width: 200px; border: 1px solid #ddd; border-radius: 8px; }
+        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #147df5; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; margin: 1rem auto; display: none; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚇 MetroMint Xpress</h1>
+        <p>Buy your Kochi Metro ticket as a unique NFT on the BNB Chain.</p>
+
+        <form id="buy-ticket-form">
+            <div class="form-group">
+                <label for="origin">From:</label>
+                <select id="origin" name="origin">
+                    {% for station in stations %}
+                    <option value="{{ station }}">{{ station }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="destination">To:</label>
+                <select id="destination" name="destination">
+                    {% for station in stations %}
+                    <option value="{{ station }}">{{ station }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" id="buy-btn">Buy Ticket</button>
+        </form>
+
+        <div class="loader" id="loader"></div>
+        <div id="result">
+            <p id="result-message"></p>
+            <div id="qr-code-container"></div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('buy-ticket-form');
+        const buyBtn = document.getElementById('buy-btn');
+        const loader = document.getElementById('loader');
+        const resultDiv = document.getElementById('result');
+        const resultMessage = document.getElementById('result-message');
+        const qrContainer = document.getElementById('qr-code-container');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const origin = document.getElementById('origin').value;
+            const destination = document.getElementById('destination').value;
+
+            if (origin === destination) {
+                alert('Origin and destination cannot be the same.');
+                return;
+            }
+
+            // UI feedback
+            buyBtn.disabled = true;
+            buyBtn.textContent = 'Minting...';
+            loader.style.display = 'block';
+            resultDiv.style.display = 'none';
+            qrContainer.innerHTML = '';
+
+            try {
+                const response = await fetch('/buy_ticket', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ origin, destination }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    resultMessage.textContent = `${data.message} Your Ticket ID is ${data.tokenId}.`;
+                    resultDiv.className = 'success';
+                    
+                    // Fetch and display QR code
+                    const qrImg = document.createElement('img');
+                    qrImg.src = `/get_ticket_qr/${data.tokenId}`;
+                    qrContainer.appendChild(qrImg);
+                } else {
+                    throw new Error(data.message || 'Failed to buy ticket.');
+                }
+            } catch (error) {
+                resultMessage.textContent = `Error: ${error.message}`;
+                resultDiv.className = 'error';
+            } finally {
+                // Restore UI
+                loader.style.display = 'none';
+                resultDiv.style.display = 'block';
+                buyBtn.disabled = false;
+                buyBtn.textContent = 'Buy Ticket';
+            }
+        });
+    </script>
+</body>
+</html>
