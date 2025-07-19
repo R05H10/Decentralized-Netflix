@@ -20,7 +20,10 @@ contract MetroMintXpress is ERC721, Ownable {
 
     event TicketUsed(uint256 indexed tokenId);
 
-    constructor() ERC721("MetroMint Xpress Ticket", "MMT") {}
+    constructor(address initialOwner)
+        ERC721("MetroMint Xpress Ticket", "MMT")
+        Ownable(initialOwner)
+    {}
 
     function mintTicket(address _to, string memory _origin, string memory _destination)
         public
@@ -42,6 +45,7 @@ contract MetroMintXpress is ERC721, Ownable {
     }
 
     function isTicketValid(uint256 _tokenId) public view returns (bool) {
+        // _exists is a more gas-efficient way to check if a token ID is valid.
         return _exists(_tokenId) && !ticketDetails[_tokenId].isUsed;
     }
 
