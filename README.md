@@ -14,19 +14,24 @@ Decentralized Netflix is a modern web application that leverages blockchain tech
 ## Workflow of Web 3 
 ```mermaid
 flowchart TD
-    A[User opens the Decentralized App] --> B[Connects Web3 Wallet]
-    B --> C[Authentication via Moralis]
-    C --> D[Login using Wallet Address]
-    D --> E[Fetch User Data from Blockchain]
-    E --> F[Display Movie List]
-    F --> G[User Selects a Movie]
-    G --> H[Stream Movie via Player]
-    H --> I[Log Activity to Moralis]
-    I --> J[Update Watchlist on Web3]
-    J --> K[No Central Server Used]
-    K --> L[Data Secured with Wallet]
-    L --> M[Private and Decentralized Experience]
+    A[User opens the Decentralized App]
+    A --> B1[Connects Web3 Wallet]
+    A --> B2[Authentication via Moralis]
+
+    B1 --> C1[Login with Wallet]
+    B2 --> C2[Fetch User Data]
+    C1 --> C3[Display Movie List]
+    C2 --> C3
+
+    C3 --> D1[User Selects a Movie]
+    C3 --> D2[Stream Movie via Player]
+    D1 --> E[Log Activity to Moralis]
+    D2 --> E
+
+    E --> F1[Update Watchlist on Web3]
+    E --> F2[Experience is Private & Decentralized]
 ```
+
 
 
 
