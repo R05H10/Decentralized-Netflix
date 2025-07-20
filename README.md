@@ -12,22 +12,20 @@ A blockchain-powered streaming platform built with React and Web3 technologies, 
 Decentralized Netflix is a modern web application that leverages blockchain technology to create a decentralized streaming platform. Users can connect their Web3 wallets, browse movies, and manage their personal movie lists in a secure, decentralized environment.
 
 ## Workflow of Web 3 
-
 ```mermaid
 flowchart LR
-    A[User Opens App] --> B[Connects Web3 Wallet (MetaMask)]
-    B --> C[Moralis Verifies User (No Passwords Needed)]
-    C --> D[Fetch User Data from Blockchain]
-    D --> E[Homepage Shows Movies]
-
-    E --> F[User Clicks Movie to Watch]
-    F --> G[Player Streams Movie]
-    G --> H[Moralis Logs Activity (No Central Server)]
-
-    H --> I[Updates Personal Watchlist (Saved on Web3)]
-    I --> J[Data is Secured & Decentralized]
-    J --> K[User Experience is Fast, Safe & Censorship-Free]
+    A[User Opens App] --> B[Connects Wallet]
+    B --> C[Verified via Moralis]
+    C --> D[Load User Data]
+    D --> E[Show Movie List]
+    E --> F[Click to Watch]
+    F --> G[Stream Movie]
+    G --> H[Log Watch Data]
+    H --> I[Save to Watchlist]
+    I --> J[Data Secured]
+    J --> K[Decentralized Experience]
 ```
+
 
 
 
