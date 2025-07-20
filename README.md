@@ -2,7 +2,9 @@
 
 A blockchain-powered streaming platform built with React and Web3 technologies, offering a decentralized alternative to traditional streaming services.
 
-![Netflix Logo](./src/images/movieLogo.png)
+<img width="1024" height="1024" alt="ChatGPT Image Jul 20, 2025, 02_35_12 PM" src="https://github.com/user-attachments/assets/5d518ebe-9e0e-400b-8ab0-4bfa4ac65582" />
+
+
 
 ## 🌟 Overview
 
