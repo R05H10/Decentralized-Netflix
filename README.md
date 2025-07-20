@@ -170,35 +170,5 @@ This project integrates with the Web3 ecosystem through:
 
 ## 🤝 Contributing
 
-We welcome contributions! Please follow these steps:
+We welcome contributions! 
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [Moralis](https://moralis.io/) - Web3 development platform
-- [React](https://reactjs.org/) - Frontend framework
-- [Ant Design](https://ant.design/) - UI component library
-- [Web3UIKit](https://github.com/web3ui/web3uikit) - Web3 UI components
-
-## 📞 Support
-
-If you have any questions or need help, please:
-
-- Open an issue on GitHub
-- Join our community discussions
-- Check the documentation
-
----
-
-
-
-*Revolutionizing streaming through decentralization* 🚀
