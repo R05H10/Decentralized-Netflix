@@ -6,7 +6,27 @@ A blockchain-powered streaming platform built with React and Web3 technologies, 
 
 ## 🌟 Overview
 
+
+
+
 Decentralized Netflix is a modern web application that leverages blockchain technology to create a decentralized streaming platform. Users can connect their Web3 wallets, browse movies, and manage their personal movie lists in a secure, decentralized environment.
+
+## Workflow of Web 3 
+
+
+
+
+## Demo
+
+
+
+
+https://github.com/user-attachments/assets/824cc196-4fb4-49e3-9724-6e55dc589062
+
+
+
+
+
 
 ## ✨ Features
 
